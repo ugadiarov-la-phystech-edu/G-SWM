@@ -22,7 +22,7 @@ import os.path as osp
 
 parent_dir = osp.abspath(osp.dirname(__file__))
 
-SHAPE_LISTS = ['circle16', 'star16', 'cross16', 'cross_rotate16', 'diamond16']
+SHAPE_LISTS = ['circle16', 'star16', 'cross16', 'cross_rotate16', 'diamond16', 'shapes2d_circle', 'shapes2d_cross', 'shapes2d_parallelogram', 'shapes2d_square', 'shapes2d_triangle']
 
 SHAPES = [imageio.imread(osp.join(parent_dir, 'shapes', '{name}.png'.format(name=name))) for name in SHAPE_LISTS]
 
