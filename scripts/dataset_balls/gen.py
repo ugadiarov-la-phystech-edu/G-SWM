@@ -373,7 +373,8 @@ def make_data(
         options,
         render_options,
         numdata,
-        seed
+        seed,
+        n_cpu,
 ):
     
     def wrapper(i, rng):
@@ -396,7 +397,7 @@ def make_data(
     seeds = np.random.RandomState(seed).randint(0, 2**32-1, size=numdata)
     rngs = [np.random.RandomState(s) for s in seeds]
     (video_list, layer_list, location_list, velocity_list, size_list, mass_list, in_camera_list,
-     present_list, id_list, color_list, shape_list) = zip(*Parallel(n_jobs=multiprocessing.cpu_count())(
+     present_list, id_list, color_list, shape_list) = zip(*Parallel(n_jobs=n_cpu)(
         delayed(wrapper)(i, rngs[i]) for i in trange(numdata))
     )
     
@@ -461,6 +462,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('-g', '--gen-list', nargs='+', type=str, default=gen_list, help='The list of configs to use')
     parser.add_argument('--output-dir', type=str, default='./data')
+    parser.add_argument('--n-cpu', type=int, default=multiprocessing.cpu_count())
     # DON'T CHANGE THIS!
     parser.add_argument('--seed', type=int, default=1, help='random seed')
     args = parser.parse_args()
@@ -475,7 +477,7 @@ if __name__ == '__main__':
         for  s in cfg.split:
             split_seed = cfg.split_seeds[s]
             path = os.path.join(directory, f'{s}.hdf5')
-            videos, layers, locations, velocities, sizes, masses, present, ids, in_camera, colors, shapes = make_data(cfg.options, cfg.render_options, cfg.split[s], seed=split_seed)
+            videos, layers, locations, velocities, sizes, masses, present, ids, in_camera, colors, shapes = make_data(cfg.options, cfg.render_options, cfg.split[s], seed=split_seed, n_cpu=args.n_cpu)
             dump_data(videos, layers, locations, velocities, sizes, masses, present, ids, in_camera, colors, shapes, path=path)
         # Output a timestep
         with open(os.path.join(directory, 'version.txt'), 'w') as f:
