@@ -201,7 +201,9 @@ def make_sequence(
             if (not good_config):
                 attempts += 1
                 if attempts > max_attempts:
-                    raise ValueError('Too many attempts when placing objects')
+                    attempts = 0
+                    i = 0
+                    locations[0] = 0
             else:
                 i += 1
                 attempts = 0
