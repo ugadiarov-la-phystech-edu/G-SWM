@@ -387,7 +387,7 @@ config_list = {
             # How many pixels to move per frame
             'speed': 3,
             'updates_per_second': 10,
-            'max_attempts': 1000,
+            'max_attempts': 9223372036854775807,
             'interaction': True,
             # For the first frame, whether all objects should be within camera
             'restricted': False,
@@ -425,7 +425,7 @@ config_list = {
             # How many pixels to move per frame
             'speed': 3,
             'updates_per_second': 10,
-            'max_attempts': 1000,
+            'max_attempts': 9223372036854775807,
             'interaction': True,
             # For the first frame, whether all objects should be within camera
             'restricted': False,
