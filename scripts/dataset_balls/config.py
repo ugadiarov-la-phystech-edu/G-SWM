@@ -280,8 +280,8 @@ config_list = {
             'first_nonoverlap': True
         }
     }),
-    'shapes2d_interaction': CfgNode({
-        'name': 'shapes2d_interaction',
+    'shapes2d_interaction_3': CfgNode({
+        'name': 'shapes2d_interaction_3',
         'gif_num': 5,
         'gif_fps': 5,
         'split': {
@@ -302,6 +302,120 @@ config_list = {
             'camera_size': (64, 64),
             'maxnum': 3,
             'num_objs': ('random', (3, 3)),
+            'obj_shapes': ('random', ('shapes2d_circle', 'shapes2d_cross', 'shapes2d_parallelogram', 'shapes2d_square', 'shapes2d_triangle')),
+            'obj_sizes': ('random', (8.0,)),
+            'obj_layers': ('random', (0,)),
+            'obj_masses': ('random', (1,)),
+            # See here https://htmlcolorcodes.com/
+            'obj_colors': ('random', ('blue', 'red', 'yellow', 'fuchsia', 'aqua')),
+            # How many pixels to move per frame
+            'speed': 3,
+            'updates_per_second': 10,
+            'max_attempts': 1000,
+            'interaction': True,
+            # For the first frame, whether all objects should be within camera
+            'restricted': False,
+            'first_nonoverlap': True
+        }
+    }),
+    'shapes2d_interaction_4': CfgNode({
+        'name': 'shapes2d_interaction_4',
+        'gif_num': 5,
+        'gif_fps': 5,
+        'split': {
+            'train': 5000,
+            'val': 200,
+            'test': 200
+        },
+        'split_seeds': {
+            'train': 7,
+            'val': 8,
+            'test': 9
+        },
+        'render_options': {
+            'round_position': False,
+        },
+        'options': {
+            'canvas_size': (64, 64),
+            'camera_size': (64, 64),
+            'maxnum': 4,
+            'num_objs': ('random', (4, 4)),
+            'obj_shapes': ('random', ('shapes2d_circle', 'shapes2d_cross', 'shapes2d_parallelogram', 'shapes2d_square', 'shapes2d_triangle')),
+            'obj_sizes': ('random', (8.0,)),
+            'obj_layers': ('random', (0,)),
+            'obj_masses': ('random', (1,)),
+            # See here https://htmlcolorcodes.com/
+            'obj_colors': ('random', ('blue', 'red', 'yellow', 'fuchsia', 'aqua')),
+            # How many pixels to move per frame
+            'speed': 3,
+            'updates_per_second': 10,
+            'max_attempts': 1000,
+            'interaction': True,
+            # For the first frame, whether all objects should be within camera
+            'restricted': False,
+            'first_nonoverlap': True
+        }
+    }),
+    'shapes2d_interaction_5': CfgNode({
+        'name': 'shapes2d_interaction_5',
+        'gif_num': 5,
+        'gif_fps': 5,
+        'split': {
+            'train': 5000,
+            'val': 200,
+            'test': 200
+        },
+        'split_seeds': {
+            'train': 7,
+            'val': 8,
+            'test': 9
+        },
+        'render_options': {
+            'round_position': False,
+        },
+        'options': {
+            'canvas_size': (64, 64),
+            'camera_size': (64, 64),
+            'maxnum': 5,
+            'num_objs': ('random', (5, 5)),
+            'obj_shapes': ('random', ('shapes2d_circle', 'shapes2d_cross', 'shapes2d_parallelogram', 'shapes2d_square', 'shapes2d_triangle')),
+            'obj_sizes': ('random', (8.0,)),
+            'obj_layers': ('random', (0,)),
+            'obj_masses': ('random', (1,)),
+            # See here https://htmlcolorcodes.com/
+            'obj_colors': ('random', ('blue', 'red', 'yellow', 'fuchsia', 'aqua')),
+            # How many pixels to move per frame
+            'speed': 3,
+            'updates_per_second': 10,
+            'max_attempts': 1000,
+            'interaction': True,
+            # For the first frame, whether all objects should be within camera
+            'restricted': False,
+            'first_nonoverlap': True
+        }
+    }),
+    'shapes2d_interaction_3-5': CfgNode({
+        'name': 'shapes2d_interaction_3-5',
+        'gif_num': 5,
+        'gif_fps': 5,
+        'split': {
+            'train': 5000,
+            'val': 200,
+            'test': 200
+        },
+        'split_seeds': {
+            'train': 7,
+            'val': 8,
+            'test': 9
+        },
+        'render_options': {
+            'round_position': False,
+        },
+        'options': {
+            'canvas_size': (64, 64),
+            'camera_size': (64, 64),
+            'maxnum': 5,
+            'num_objs': ('random', (3, 6)),
             'obj_shapes': ('random', ('shapes2d_circle', 'shapes2d_cross', 'shapes2d_parallelogram', 'shapes2d_square', 'shapes2d_triangle')),
             'obj_sizes': ('random', (8.0,)),
             'obj_layers': ('random', (0,)),
